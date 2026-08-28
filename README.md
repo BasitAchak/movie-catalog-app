@@ -44,6 +44,10 @@ The app initializes Firebase in `src/firebase.js` and uses Firebase Authenticati
 
 For a different Firebase project, replace the configuration in `src/firebase.js` with that project's web app configuration.
 
+The Firebase web configuration in `src/firebase.js` is intended for the browser and is not an Admin credential. Never place Firebase service-account JSON, Admin SDK credentials, private keys, passwords, or access tokens in this frontend project or in `VITE_` environment variables. If environment variables are introduced later, remember that Vite exposes every `VITE_` variable to the browser.
+
+Before publishing, add the Vercel deployment domain and any local development domains to Firebase Authentication's authorized domains. Restrict the Firebase web API key in Google Cloud Console to the APIs and web origins used by this app. This project currently uses no Firestore, Realtime Database, or Firebase Storage data, so no Firebase database or storage rules are required for its current feature set.
+
 ## Available Scripts
 
 ```bash
