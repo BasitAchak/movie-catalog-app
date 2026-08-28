@@ -806,3 +806,76 @@ footer {
     font-size: 34px;
   }
 }
+.login-logo {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto 25px;
+
+  border-radius: 14px;
+
+  background: white;
+  color: #09090b;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.login-description {
+  margin: 15px 0 28px;
+
+  color: #71717a;
+
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.login-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.auth-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  margin-top: 22px;
+
+  color: #71717a;
+
+  font-size: 13px;
+}
+
+.auth-switch button {
+  width: auto;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-switch button:hover {
+  text-decoration: underline;
+}
+
+.login-note {
+  margin-top: 22px;
+
+  color: #52525b;
+
+  text-align: center;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
