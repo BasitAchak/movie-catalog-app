@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {
   onAuthStateChanged,
   signOut,
@@ -7,6 +8,7 @@ import {
 import { auth } from "./firebase";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Health from "./pages/Health";
 
 import "./App.css";
 
@@ -34,26 +36,34 @@ function App() {
   if (loading) {
     return (
       <div className="loading-screen">
-
         <div className="loading-spinner" />
-
-        <p>
-          Loading ReelSpace...
-        </p>
-
+        <p>Loading ReelSpace...</p>
       </div>
     );
   }
 
-  if (!user) {
-    return <Login />;
-  }
-
   return (
-    <Home
-      user={user}
-      onLogout={handleLogout}
-    />
+    <Routes>
+      <Route path="/health" element={<Health />} />
+
+      <Route
+        path="/login"
+        element={user ? <Navigate to="/" replace /> : <Login />}
+      />
+
+      <Route
+        path="/"
+        element={
+          user ? (
+            <Home user={user} onLogout={handleLogout} />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
 
